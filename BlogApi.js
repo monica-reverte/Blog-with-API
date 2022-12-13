@@ -5,9 +5,7 @@
 
 const urlPost = "http://localhost:3000/posts";
 let cardBody = document.querySelector("#cardBody");
-
-
-        
+       
 fetch(urlPost)
     .then(response => response.json())
     .then(posts => {
