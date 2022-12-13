@@ -1,11 +1,7 @@
-//const post = document.querySelector(".card");
-//post.addEventListener("click", firstModal);
-
-
 
 const urlPost = "http://localhost:3000/posts";
 let cardBody = document.querySelector("#cardBody");
-       
+
 fetch(urlPost)
     .then(response => response.json())
     .then(posts => {
@@ -19,6 +15,21 @@ fetch(urlPost)
         `})
             
     })
+
+//cardBody.addEventListener("click", firstModal);
+
+
+const myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.bs.modal', event => {
+  console.log(myModalEl)
+})
+
+
+
+
+
+
+
 
 
 
