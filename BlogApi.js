@@ -6,8 +6,8 @@ fetch(urlPost)
     .then(response => response.json())
     .then(posts => {
         posts.forEach(item =>{
-        cardBody.innerHTML += `<div class="col"><div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+        cardBody.innerHTML += `<div class="col mb-4"><div class="card h-100">
+            <img src="https://picsum.photos/200/300?random=2" class="card-img-top" alt="randomImg" style="width:100%; >
             <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
             </div>
@@ -16,13 +16,7 @@ fetch(urlPost)
             
     })
 
-//cardBody.addEventListener("click", firstModal);
-
-
-const myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', event => {
-  console.log(myModalEl)
-})
+    
 
 
 
