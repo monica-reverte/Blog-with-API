@@ -42,7 +42,7 @@ function showModal(event) {
 function loadPost(data) {
     const modalTitle = document.querySelector(".modal-header");
     const modalBody = document.querySelector(".modal-body");
-    modalTitle.innerHTML = `<h4 class="modal-title">${data.title}</h4>`;
+    modalTitle.innerHTML = `<h4 class="modal-title">${data.title}</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`;
     modalBody.innerHTML = `<p>${data.body}</p>`;
     loadUsers(data.userId);
     showComments(data.id);
@@ -77,7 +77,7 @@ function showComments(data){
             .then(data => {
                 loadCom.innerHTML= "";
                 data.forEach(com => {
-                    loadCom.innerHTML += `<p>${com.name}</p><p>${com.email}</p><p>${com.body}</p>`} 
+                    loadCom.innerHTML += `<p class="fw-bold">${com.name}</p><p>${com.email}</p><p>${com.body}</p>`} 
             )}
                     
                     
