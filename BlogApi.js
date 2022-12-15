@@ -10,11 +10,16 @@ fetch(urlPost)
             <img src="https://picsum.photos/200/300?random=2" class="card-img-top" alt="randomImg" style="width:100%; >
             <div class="card-body active">
             <h5 class="card-title">${item.title}</h5>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button lav="${item.id}"type="button" class="btn btn-outline-primary btn-edit">Edit</button>
+            <button val="${item.id}" type="button" class="btn btn-outline-primary" id="btnDelete">Delete</button>
             </div>
             </div>
-        `})
+            </div>`})
 
     })
+
+
 
 
 
@@ -29,13 +34,30 @@ function showModal(event) {
     if (event.target && event.target.parentElement.matches(".card")) {
         myModal.show();
         id = event.target.parentElement.parentElement.id;
-    }
-
-    urlModal = `http://localhost:3000/posts/${id}`;
+        urlModal = `http://localhost:3000/posts/${id}`;
     
-    fetch(urlModal)
-        .then(res => res.json())
-        .then(data => loadPost(data));
+        fetch(urlModal)
+            .then(res => res.json())
+            .then(data => loadPost(data));
+    }else if(event.target.matches("#btnDelete")){
+        id=event.target.getAttribute("val");
+            fetch(`http://localhost:3000/posts/${id}`,{
+            method: 'DELETE',
+        })
+            .then(res => res.json()) 
+            .then(res => console.log(res))
+    }else if(event.target.matches(".btn-edit")){
+        id=event.target.getAttribute("val");
+        fetch(`http://localhost:3000/posts/${id}`,{
+            method: 'PUT',
+        })
+        
+    }
+    
+
+    
+
+   
 };
 
 
