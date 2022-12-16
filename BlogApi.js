@@ -11,17 +11,12 @@ fetch(urlPost)
             <div class="card-body active">
             <h5 class="card-title">${item.title}</h5>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button lav="${item.id}"type="button" class="btn btn-outline-primary btn-edit">Edit</button>
             <button val="${item.id}" type="button" class="btn btn-outline-primary" id="btnDelete">Delete</button>
             </div>
             </div>
             </div>`})
 
     })
-
-
-
-
 
 const myModal = new bootstrap.Modal("#myModal");
 
@@ -46,18 +41,8 @@ function showModal(event) {
         })
             .then(res => res.json()) 
             .then(res => console.log(res))
-    }else if(event.target.matches(".btn-edit")){
-        id=event.target.getAttribute("val");
-        fetch(`http://localhost:3000/posts/${id}`,{
-            method: 'PUT',
-        })
-        
-    }
-    
+        }
 
-    
-
-   
 };
 
 
@@ -100,18 +85,5 @@ function showComments(data){
                 loadCom.innerHTML= "";
                 data.forEach(com => {
                     loadCom.innerHTML += `<p class="fw-bold">${com.name}</p><p>${com.email}</p><p>${com.body}</p>`} 
-            )}
-                    
-                    
+            )}                   
 )}; 
-        
-
-
-        
-        
-    
-
-
-
-
-
