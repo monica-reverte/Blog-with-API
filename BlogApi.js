@@ -15,11 +15,9 @@ fetch(urlPost)
             </div>
             </div>
             </div>`})
-
     })
 
 const myModal = new bootstrap.Modal("#myModal");
-
 cardBody.addEventListener("click", showModal)
 let urlModal;
 
